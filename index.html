@@ -1,0 +1,60 @@
+<!html>
+  <head>
+	<script src="script.js"></script>
+	<script type="text/javascript" src="joystick.js"></script>
+
+	<link rel="stylesheet" href="style.css">
+
+
+  </head>
+
+  <body>
+    <h1>moja aplikacja</h1>
+  </body>
+  <div class="b">
+    <button type="button" id="b" onclick="go()"> dwa </button>
+	<button type="button" id="scan" onclick="scanStart()"> scan </button>
+
+  </div>
+  <span id="result"></span>
+  <span id="log">log</span>
+  <div class="joystickBox">
+	<div id="container"></div>
+
+	<script src="virtualjoystick.js"></script>
+  <div id="logScan">
+
+
+  </div>
+
+
+	<script>
+		console.log("touchscreen is", VirtualJoystick.touchScreenAvailable() ? "available" : "not available");
+			var joystick	= new VirtualJoystick({
+			container	: document.getElementById('container'),
+			mouseSupport	: true,
+			});
+			joystick.addEventListener('touchStart', function(){
+				console.log('down')
+			})
+			joystick.addEventListener('touchEnd', function(){
+				console.log('up')
+			})
+
+			setInterval(function(){
+				var outputEl	= document.getElementById('result');
+				outputEl.innerHTML	= '<b>Result:</b> '
+					+ ' dx:'+joystick.deltaX()
+					+ ' dy:'+joystick.deltaY()
+					+ (joystick.right()	? ' right'	: '')
+					+ (joystick.up()	? ' up'		: '')
+					+ (joystick.left()	? ' left'	: '')
+					+ (joystick.down()	? ' down' 	: '')
+			}, 1/30 * 1000);
+	</script>
+  <script type="text/javascript">
+           app.initialize();
+       </script>
+  </div>
+
+</html>
