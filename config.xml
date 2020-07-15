@@ -20,6 +20,6 @@
   <platform name="android" />
 	<plugin name="cordova-plugin-geolocation" spec="~4.0.2" />
 	<plugin name="cordova-plugin-media-capture" spec="~3.0.3" />
-  <plugin name="org.bcsphere.bluetooth" spec="0.5.1" source="pgb" />
+  
 	<preference name="phonegap-version" value="cli-9.0.0" />
 </widget>
